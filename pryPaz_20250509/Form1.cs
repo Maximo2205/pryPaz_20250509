@@ -4,15 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pryPaz_20250509.Properties;
 
 namespace pryPaz_20250509
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
         }
@@ -26,13 +28,26 @@ namespace pryPaz_20250509
 
         private void pctParcial_Click(object sender, EventArgs e)
         {
-            string imagen = cmbParcial.Text;
 
-            if(imagen == "Superman")
+        }
+
+        private void cmbParcial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int eleccion = cmbParcial.SelectedIndex;
+
+            switch (eleccion)
             {
-                
-            }
+                case 0:
+                    pctParcial.Image = Resources.Superman;    
+                    break;  
+                case 1:
+                    pctParcial.Image = Resources.Batman;
+                    break;
+                case 2:
+                    pctParcial.Image = Resources.WonderWoman;
+                    break;
 
+            }
         }
     }
 }
